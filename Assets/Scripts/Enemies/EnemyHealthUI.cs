@@ -5,7 +5,7 @@ public class EnemyHealthUI : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
-    [SerializeField] private EventScriptableObject eventScriptableObject;
+    [SerializeField] private EventFloatScriptableObject eventScriptableObject;
     [SerializeField] private Slider slider;
 
     public void Damage(float amount)

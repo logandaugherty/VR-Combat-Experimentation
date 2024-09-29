@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Sword Test.unity
+    guid: 9bbe3e20e6ffc284099bf8f76963ba2d
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 802673005baf9f84c936dc0e5cec5f28,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71b29f48957433f4ead21b5418a39311,
+      type: 2}
   m_UseUCBPForAssetBundles: 0
