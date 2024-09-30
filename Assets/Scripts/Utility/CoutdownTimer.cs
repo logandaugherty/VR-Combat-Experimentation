@@ -12,6 +12,7 @@ public class CountdownTimer : MonoBehaviour
 
     public void StartTimer(float time, Action timer_event, bool loop = false)
     {
+
         this.timer_event = timer_event;
         this.startTime = time;
         this.time = time;
@@ -28,7 +29,14 @@ public class CountdownTimer : MonoBehaviour
             if (IsTimerComplete())
             {
                 if (loop)
+                {
+                    Debug.Log("Looping Timer!");
+
                     time = startTime;
+                }
+
+                Debug.Log("Triggering Timer Event!");
+
                 timer_event();
             }
 
