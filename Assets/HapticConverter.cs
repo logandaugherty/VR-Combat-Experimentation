@@ -13,7 +13,7 @@ public class HapticConverter : Editor
 
         // File input field
         EditorGUILayout.LabelField("Haptic File (.haptic)", EditorStyles.boldLabel);
-        myScript.m_object = EditorGUILayout.ObjectField(myScript.m_object, typeof(Object),true);
+        myScript.m_object = EditorGUILayout.ObjectField(myScript.m_object, typeof(Object), true);
         myScript.hapticFilePath = EditorGUILayout.TextField("File Path", myScript.hapticFilePath);
 
         // Button
