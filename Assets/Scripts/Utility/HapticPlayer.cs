@@ -9,18 +9,33 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
 public class HapticPlayer : MonoBehaviour
 {
     [SerializeField] private UnityEngine.Object hapticClip;
-    [SerializeField] private string filePath;
     [SerializeField] private HapticImpulsePlayer m_player;
-    [SerializeField] public int testVar;
 
-    //#if UNITY_EDITOR
-    public List<Root.Envelope> m_values = new List<Root.Envelope>();
-//    #endif
+    private CountdownTimer m_countdownTimer;
+    private string filePath;
+    private List<Root.Envelope> m_values = new List<Root.Envelope>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PrintDictionary();
+        ConvertDictionary();
+        m_countdownTimer = GetComponent<CountdownTimer>();
+    }
+
+    public void SetClip(UnityEngine.Object hapticClip)
+    {
+        this.hapticClip = hapticClip;
+    }
+
+    private void GenerateFilePath()
+    {
+        if (hapticClip == null)
+        {
+            return;
+        }
+
+        string assetPath = AssetDatabase.GetAssetPath(hapticClip.GetInstanceID());
+        filePath = assetPath;
     }
 
     public void PrintDictionary()
@@ -30,6 +45,8 @@ public class HapticPlayer : MonoBehaviour
 
     public async void ConvertDictionary()
     {
+        GenerateFilePath();
+
         Root dictionary;
         Debug.Log($"Converting to Dictionary at file {filePath}");
         Debug.Log($"Starting with {m_values.Count} items");
