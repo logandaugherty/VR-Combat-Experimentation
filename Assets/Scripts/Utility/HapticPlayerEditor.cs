@@ -1,13 +1,15 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using static HapticPlayer.Root;
 
-[CustomEditor(typeof(StreamingImage))]
-public class StreamingImageEditor : Editor
+[CustomEditor(typeof(HapticPlayer))]
+public class HapticPlayerEditor : Editor
 {
 
     SerializedProperty filePath;
     SerializedProperty hapticClip;
+    SerializedObject values;
 
     const string kAssetPrefix = "Assets/StreamingAssets";
 
@@ -19,7 +21,7 @@ public class StreamingImageEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        StreamingImage myScript = (StreamingImage)target;
+        HapticPlayer myScript = (HapticPlayer)target;
 
         serializedObject.Update();
         EditorGUILayout.PropertyField(hapticClip);
@@ -36,11 +38,24 @@ public class StreamingImageEditor : Editor
             assetPath = assetPath.Substring(kAssetPrefix.Length);
         }
         filePath.stringValue = assetPath;
-        serializedObject.ApplyModifiedProperties();
 
-        if (GUILayout.Button("Click Me"))
+        if (GUILayout.Button("Convert to Dictionary"))
         {
             myScript.ConvertDictionary();
         }
+        if (GUILayout.Button("Print Dictionary"))
+        {
+            myScript.PrintDictionary();
+        }
+        if (GUILayout.Button("Refresh Assets"))
+        {
+            serializedObject.Update();
+            AssetDatabase.Refresh();
+            myScript.PrintDictionary();
+
+            myScript.testVar = 1;
+
+        }
+
     }
 }

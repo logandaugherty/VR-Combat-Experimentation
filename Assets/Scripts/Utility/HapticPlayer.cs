@@ -1,67 +1,38 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
-using static TestScript.Root;
 
-//[ExecuteInEditMode]
-public class StreamingImage : MonoBehaviour
+public class HapticPlayer : MonoBehaviour
 {
-#if UNITY_EDITOR
-    [SerializeField] private Object hapticClip;
-
+    [SerializeField] private UnityEngine.Object hapticClip;
     [SerializeField] private string filePath;
     [SerializeField] private HapticImpulsePlayer m_player;
-    private int index = 0;
-#endif
+    [SerializeField] public int testVar;
 
-    private List<Root.Envelope> values;
-
-
-    private CountdownTimer countdownTimer;
-    private float m_activeTime;
+    //#if UNITY_EDITOR
+    public List<Root.Envelope> m_values = new List<Root.Envelope>();
+//    #endif
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        countdownTimer = GetComponent<CountdownTimer>();
-        PrepareNextStep();
+        PrintDictionary();
     }
 
-    private void Update()
+    public void PrintDictionary()
     {
-        m_activeTime += Time.deltaTime;
-    }
-
-    void TriggerChange()
-    {
-        //m_player.SendHapticImpulse(m_active_amp, 1, m_active_freq);
-        Debug.Log($"New Haptic Pulse: amp: {values[index].amplitude}, freq: {values[index].frequency}, time: {values[index].time}");
-        PrepareNextStep();
-    }
-
-    void PrepareNextStep()
-    {
-        float time_left = values[index].time;
-
-        time_left -= m_activeTime;
-
-        if (time_left <= 0)
-        {
-            TriggerChange();
-            return;
-        }
-
-        countdownTimer.StartTimer(time_left, TriggerChange);
+        Debug.Log($"There are {m_values.Count} recorded values in the dictionary");
     }
 
     public async void ConvertDictionary()
     {
         Root dictionary;
-        Debug.Log("The button was pressed!");
-        Debug.Log($"File Path is {filePath}");
+        Debug.Log($"Converting to Dictionary at file {filePath}");
+        Debug.Log($"Starting with {m_values.Count} items");
         using (StreamReader r = new StreamReader(filePath))
         {
 
@@ -74,7 +45,6 @@ public class StreamingImage : MonoBehaviour
             }
             else
             {
-
                 // Deserialize the JSON data into the Root object
                 dictionary = JsonConvert.DeserializeObject<Root>(json);
             }
@@ -83,21 +53,21 @@ public class StreamingImage : MonoBehaviour
         var envelopes = dictionary.signals.continuous.envelopes;
 
         // Combine amplitude and frequency lists
-        values = new List<Root.Envelope>();
+        m_values = new List<Root.Envelope>();
 
-        values.AddRange(envelopes.amplitude);
-        values.AddRange(envelopes.frequency);
+        m_values.AddRange(envelopes.amplitude);
+        m_values.AddRange(envelopes.frequency);
 
 
         // Sort the combined list by the "time" component
-        values.Sort((x, y) => x.time.CompareTo(y.time));
-        /*
-                foreach (var envelope in values)
-                {
-                    Debug.Log($"Envelope Details: {envelope.time}, {envelope.amplitude}, {envelope.frequency}");
-                }*/
+        m_values.Sort((x, y) => x.time.CompareTo(y.time));
+
+
+        Debug.Log($"Conversion Successful with {m_values.Count} items!");
     }
 
+
+    [Serializable]
     public class Root
     {
         public Signals signals { get; set; } = new Signals();
