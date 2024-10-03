@@ -11,15 +11,20 @@ public class HapticPlayer : MonoBehaviour
     [SerializeField] private UnityEngine.Object hapticClip;
     [SerializeField] private HapticImpulsePlayer m_player;
 
-    [Range(1f, 5f)]
+    [SerializeField] private bool m_playOnStart;
+
+    [Range(0.1f, 5f)]
     [SerializeField] private float m_speed = 1;
 
     [Range(0f, 1f)]
     [SerializeField] private float m_volume = 1;
 
+
     private CountdownTimer m_countdownTimer;
     private float m_activeTime;
-    private int m_index = -1;
+    private int m_index;
+
+    private bool m_isPlaying;
 
     private string filePath;
     private List<Root.Envelope> m_values = new List<Root.Envelope>();
@@ -30,20 +35,46 @@ public class HapticPlayer : MonoBehaviour
     {
         ConvertDictionary();
         m_countdownTimer = GetComponent<CountdownTimer>();
-        Invoke(nameof(PrepareNextStep),1f);
 
         m_envelope.amplitude = 0;
         m_envelope.frequency = 0;
+
+        if (m_playOnStart)
+        {
+            Invoke(nameof(Play),0.1f);
+        }
     }
 
     private void Update()
     {
-        m_activeTime += Time.deltaTime * m_speed;
+        if(m_isPlaying)
+            m_activeTime += Time.deltaTime * m_speed;
+    }
+
+    public void Play()
+    {
+        m_index = -1;
+        m_activeTime = 0;
+        m_isPlaying = true;
+        PrepareNextStep();
+    }
+
+    public void Pause()
+    {
+        m_isPlaying = false;
+    }
+
+    public void Resume()
+    {
+        m_isPlaying = true;
+        PrepareNextStep();
     }
 
     public void SetClip(UnityEngine.Object hapticClip)
     {
         this.hapticClip = hapticClip;
+        ConvertDictionary();
+        Play();
     }
 
     private void GenerateFilePath()
@@ -65,11 +96,14 @@ public class HapticPlayer : MonoBehaviour
 
     void TriggerChange()
     {
+        if (!m_isPlaying)
+            return;
+
         Root.Envelope envelope = m_values[m_index];
 
         if (envelope.amplitude != null)
             m_envelope.amplitude = envelope.amplitude * m_volume;
-        if (envelope.frequency != null)
+        else if (envelope.frequency != null)
             m_envelope.frequency = envelope.frequency;
 
         Debug.Log($"Sending Haptic Pulse: a={m_envelope.amplitude}, f={m_envelope.frequency}");

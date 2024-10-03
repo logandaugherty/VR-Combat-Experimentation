@@ -984,7 +984,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hapticClip: {fileID: 102900000, guid: 37e55e1122a1ee94bbc72cd96ae55afc, type: 3}
-  m_player: {fileID: 0}
+  m_player: {fileID: 8712551878423545616}
+  m_playOnStart: 1
+  m_speed: 1
+  m_volume: 1
 --- !u!114 &1328078945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2597253267078988661}
   - component: {fileID: 2005759363550951013}
+  - component: {fileID: 2597253267078988662}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1170,6 +1174,33 @@ Transform:
   - {fileID: 924740878}
   m_Father: {fileID: 2597253266950799319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2597253267078988662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597253267078988660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b734f2bd29eeddd4d85afb0c266228c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HapticOutput:
+    m_InputSourceMode: 2
+    m_InputAction:
+      m_Name: Haptic
+      m_Type: 2
+      m_ExpectedControlType: 
+      m_Id: 80971d0f-fcd3-4467-b9e6-78f2f0b2bdba
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_InputActionReference: {fileID: -8222252007134549311, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+    m_ObjectReferenceObject: {fileID: 0}
+  m_AmplitudeMultiplier: 1
 --- !u!81 &2597253267166356465
 AudioListener:
   m_ObjectHideFlags: 0
