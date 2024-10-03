@@ -11,15 +11,34 @@ public class HapticPlayer : MonoBehaviour
     [SerializeField] private UnityEngine.Object hapticClip;
     [SerializeField] private HapticImpulsePlayer m_player;
 
+    [Range(1f, 5f)]
+    [SerializeField] private float m_speed = 1;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float m_volume = 1;
+
     private CountdownTimer m_countdownTimer;
+    private float m_activeTime;
+    private int m_index = -1;
+
     private string filePath;
     private List<Root.Envelope> m_values = new List<Root.Envelope>();
+    private Root.Envelope m_envelope = new Root.Envelope();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ConvertDictionary();
         m_countdownTimer = GetComponent<CountdownTimer>();
+        Invoke(nameof(PrepareNextStep),1f);
+
+        m_envelope.amplitude = 0;
+        m_envelope.frequency = 0;
+    }
+
+    private void Update()
+    {
+        m_activeTime += Time.deltaTime * m_speed;
     }
 
     public void SetClip(UnityEngine.Object hapticClip)
@@ -41,6 +60,35 @@ public class HapticPlayer : MonoBehaviour
     public void PrintDictionary()
     {
         Debug.Log($"There are {m_values.Count} recorded values in the dictionary");
+    }
+
+
+    void TriggerChange()
+    {
+        Root.Envelope envelope = m_values[m_index];
+
+        if (envelope.amplitude != null)
+            m_envelope.amplitude = envelope.amplitude * m_volume;
+        if (envelope.frequency != null)
+            m_envelope.frequency = envelope.frequency;
+
+        Debug.Log($"Sending Haptic Pulse: a={m_envelope.amplitude}, f={m_envelope.frequency}");
+        PrepareNextStep();
+    }
+
+    void PrepareNextStep()
+    {
+        if (++m_index >= m_values.Count)
+            return;
+        float time_left = m_values[m_index].time-m_activeTime;
+       
+        if (time_left <= 0)
+        {
+            TriggerChange();
+            return;
+        }
+
+        m_countdownTimer.StartTimer(time_left, TriggerChange);
     }
 
     public async void ConvertDictionary()
@@ -82,7 +130,6 @@ public class HapticPlayer : MonoBehaviour
 
         Debug.Log($"Conversion Successful with {m_values.Count} items!");
     }
-
 
     [Serializable]
     public class Root

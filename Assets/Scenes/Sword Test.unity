@@ -947,6 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1328078943}
+  - component: {fileID: 1328078945}
   - component: {fileID: 1328078944}
   m_Layer: 0
   m_Name: Haptic Manager
@@ -983,9 +984,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hapticClip: {fileID: 102900000, guid: 37e55e1122a1ee94bbc72cd96ae55afc, type: 3}
-  filePath: Assets/fire-sound-efftect-21991.haptic
   m_player: {fileID: 0}
-  testVar: 0
+--- !u!114 &1328078945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328078942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa12b66a46f2f043b3d083aefbaabdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2005759363550951013
 MonoBehaviour:
   m_ObjectHideFlags: 0
