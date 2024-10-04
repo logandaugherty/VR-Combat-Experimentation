@@ -79,7 +79,7 @@ public class HapticPlayer : MonoBehaviour
         m_envelope.frequency = 0;
 
         // Prepare first signal for haptics
-        PrepareNextStep();
+        IncrementHaptic();
     }
 
 
@@ -91,7 +91,7 @@ public class HapticPlayer : MonoBehaviour
     public void Resume()
     {
         m_isPlaying = true;
-        PrepareNextStep();
+        IncrementHaptic();
     }
 
     public void SetLoop(bool loop)
@@ -112,8 +112,38 @@ public class HapticPlayer : MonoBehaviour
         Debug.Log($"There are {m_values.Count} recorded values in the dictionary");
     }
 
+    // Coordinate the current haptic feedback item to look at
+    void IncrementHaptic()
+    {
+        // If the index exceeds a valid range...
+        if (++m_index >= m_values.Count)
+        {
+            // ... and the programmer wants to wrap to the start, reset the clip
+            if (m_loop)
+                Play();
 
-    void TriggerChange()
+            // ... exit out of this loop
+            return;
+        }
+
+        // Store the time left based on the new index subtracted by the current time
+        float time_left = m_values[m_index].time - m_activeTime;
+       
+        // If the time is below or at 0, send signal now
+        if (time_left <= 0)
+        {
+            SendHaptic();
+            return;
+        }
+
+        // Wait for this time left and send the signal, and increment the haptic
+        m_countdownTimer.StartTimer(time_left, () => {
+            SendHaptic(); IncrementHaptic();
+            });
+    }
+
+    // Send haptic feedback to controller by a given index
+    void SendHaptic()
     {
         // If the player is not active, do not send haptic feedback
         if (!m_isPlaying)
@@ -131,28 +161,6 @@ public class HapticPlayer : MonoBehaviour
         // Send haptic feedback to controller
         Debug.Log($"Sending Haptic Pulse: a={m_envelope.amplitude}, f={m_envelope.frequency}");
         //m_player.SendHapticImpulse(m_envelope.amplitude.Value, 0.1f, m_envelope.frequency.Value);
-
-        // Move to next item in list
-        PrepareNextStep();
-    }
-
-    void PrepareNextStep()
-    {
-        if (++m_index >= m_values.Count)
-        {
-            if (m_loop)
-                Play();
-            return;
-        }
-        float time_left = m_values[m_index].time-m_activeTime;
-       
-        if (time_left <= 0)
-        {
-            TriggerChange();
-            return;
-        }
-
-        m_countdownTimer.StartTimer(time_left, TriggerChange);
     }
 
     public async void ConvertDictionary()

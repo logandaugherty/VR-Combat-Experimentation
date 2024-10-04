@@ -919,7 +919,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081076434}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2597253267078988660}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb33f0c2fa312b4983483c08572a911, type: 3}
   m_Name: 
@@ -1447,15 +1447,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2597253267078988660}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ed40217f414c4a4b9bf6e7be8802f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hapticClip: {fileID: 0}
+  m_hapticClip: {fileID: 102900000, guid: 37e55e1122a1ee94bbc72cd96ae55afc, type: 3}
   m_player: {fileID: 2597253267078988662}
-  m_loop: 0
-  m_playOnStart: 1
+  m_loop: 1
+  m_playOnStart: 0
   m_speed: 1
   m_volume: 0.77
 --- !u!114 &2597253267078988666
@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2597253265476715403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb33f0c2fa312b4983483c08572a911, type: 3}
   m_Name: 
@@ -2080,10 +2080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed40217f414c4a4b9bf6e7be8802f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hapticClip: {fileID: 102900000, guid: b0ee057c4d8e2f0478ccf5b4ddbe81e4, type: 3}
+  m_hapticClip: {fileID: 102900000, guid: 37e55e1122a1ee94bbc72cd96ae55afc, type: 3}
   m_player: {fileID: 8712551878423545616}
   m_loop: 1
-  m_playOnStart: 1
+  m_playOnStart: 0
   m_speed: 1
   m_volume: 1
 --- !u!114 &8712551878423545620

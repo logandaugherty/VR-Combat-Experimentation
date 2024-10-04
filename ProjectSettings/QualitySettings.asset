@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 0
+  m_CurrentQuality: 1
   m_QualitySettings:
   - serializedVersion: 4
     name: Performant
@@ -111,8 +111,7 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms:
-    - Android
+    excludedTargetPlatforms: []
   - serializedVersion: 4
     name: High Fidelity
     pixelLightCount: 2
@@ -222,7 +221,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
-    Android: 3
+    Android: 1
     CloudRendering: 2
     GameCoreScarlett: 2
     GameCoreXboxOne: 2
@@ -232,8 +231,8 @@ QualitySettings:
     PS5: 2
     Server: 0
     Stadia: 2
-    Standalone: 3
-    WebGL: 0
+    Standalone: 1
+    WebGL: 1
     Windows Store Apps: 2
     XboxOne: 2
     iPhone: 1
