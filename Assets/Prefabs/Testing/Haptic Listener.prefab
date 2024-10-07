@@ -319,7 +319,6 @@ GameObject:
   - component: {fileID: 1410452049823387074}
   - component: {fileID: 3108815562936149106}
   - component: {fileID: 99270258076643317}
-  - component: {fileID: 8059248755869839469}
   m_Layer: 0
   m_Name: Haptic Listener
   m_TagString: Untagged
@@ -417,33 +416,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8059248755869839469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2234342657376699217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8c6d4ec91d8d34f8908669075f697c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HapticOutput:
-    m_InputSourceMode: 2
-    m_InputAction:
-      m_Name: Haptic
-      m_Type: 2
-      m_ExpectedControlType: 
-      m_Id: 4f931611-2bed-47e5-ad58-7aed1fbffe6b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_InputActionReference: {fileID: 0}
-    m_ObjectReferenceObject: {fileID: 0}
-  m_AmplitudeMultiplier: 1
-  m_hapticChannel: {fileID: 11400000, guid: 3fa8b1997ea6a194a8715253e0e10bb8, type: 2}
 --- !u!1 &2275483528445785133
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +842,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.65
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

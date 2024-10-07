@@ -667,11 +667,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -680,12 +675,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8059248755869839469, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_HapticOutput.m_InputActionReference
-      value: 
-      objectReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f,
-        type: 3}
     - target: {fileID: 8736090838611294763, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1005,11 +994,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3691909299909418330, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4949079154400541581, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1167,25 +1151,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059248755869839469, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_HapticOutput.m_InputActionReference
-      value: 
-      objectReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f,
-        type: 3}
     - target: {fileID: 8736090838611294763, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1664,11 +1632,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -1677,12 +1640,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8059248755869839469, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_HapticOutput.m_InputActionReference
-      value: 
-      objectReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f,
-        type: 3}
     - target: {fileID: 8736090838611294763, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3152,11 +3109,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332817843635373756, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -3165,12 +3117,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8059248755869839469, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
-        type: 3}
-      propertyPath: m_HapticOutput.m_InputActionReference
-      value: 
-      objectReference: {fileID: -8785819595477538065, guid: c348712bda248c246b8c49b3db54643f,
-        type: 3}
     - target: {fileID: 8736090838611294763, guid: 4a12060b374ab63409ef4ceba6fdcfbf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4010,8 +3956,8 @@ SceneRoots:
   - {fileID: 1770147327}
   - {fileID: 1308511942}
   - {fileID: 1274874190}
-  - {fileID: 1975275650}
   - {fileID: 934933198}
+  - {fileID: 1975275650}
   - {fileID: 1597560345}
   - {fileID: 730103209}
   - {fileID: 4250332788322249565}
